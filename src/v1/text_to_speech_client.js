@@ -58,6 +58,10 @@ class TextToSpeechClient {
     opts = opts || {};
     this._descriptors = {};
 
+    console.log(`=== Debug information ===
+opts: ${JSON.stringify(opts)}
+global.isBrowser: ${global.isBrowser}`);
+
     if (global.isBrowser) {
       // If we're in browser, we use gRPC fallback.
       opts.fallback = true;
@@ -117,6 +121,14 @@ class TextToSpeechClient {
       'protos',
       'protos.json'
     );
+    console.log(`nodejsProtoPath: ${nodejsProtoPath}
+opts.fallback: ${opts.fallback}`);
+
+    const param = opts.fallback
+      ? require('../../protos/protos.json')
+      : nodejsProtoPath;
+    console.log(`loadProto arg: ${param}
+ === End of debug information ===`);
     const protos = gaxGrpc.loadProto(
       opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
     );
@@ -212,7 +224,7 @@ class TextToSpeechClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} [request.languageCode]
-   *   Optional. Recommended.
+   *   Optional (but recommended)
    *   [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. If
    *   specified, the ListVoices call will only return voices that can be used to
    *   synthesize this language_code. E.g. when specifying "en-NZ", you will get
