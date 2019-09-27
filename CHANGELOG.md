@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/text-to-speech?activeTab=versions
 
+## [1.4.0](https://www.github.com/googleapis/nodejs-text-to-speech/compare/v1.3.0...v1.4.0) (2019-09-27)
+
+
+### Features
+
+* .d.ts for protos ([#270](https://www.github.com/googleapis/nodejs-text-to-speech/issues/270)) ([dd7f91e](https://www.github.com/googleapis/nodejs-text-to-speech/commit/dd7f91e))
+
 ## [1.3.0](https://www.github.com/googleapis/nodejs-text-to-speech/compare/v1.2.0...v1.3.0) (2019-09-16)
 
 
